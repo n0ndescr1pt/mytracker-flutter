@@ -1,15 +1,25 @@
 group 'com.my.my.tracker.flutter'
-version '3.1.0'
+version '3.1.1'
 
+
+allprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KaptGenerateStubs).configureEach {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+}
 buildscript {
-    ext.kotlin_version = '1.5.21'
+    ext.kotlin_version = '1.9.10' 
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:8.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -26,7 +36,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 34
-
+    namespace 'com.my.tracker.flutter'
     sourceSets {
         main.java.srcDirs += 'src/main'
     }
@@ -37,5 +47,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.my.tracker:mytracker-sdk:3.3.0"
+    implementation "com.my.tracker:mytracker-sdk:3.3.2"
 }
