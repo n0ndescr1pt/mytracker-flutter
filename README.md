@@ -1,5 +1,10 @@
 # myTracker Flutter SDK
 
+пофиксил android версию
+- отсутсвовал namespace
+- была проблема с kotlin и gradle
+
+
 ![Platforms][platforms-svg]
 [![License][license-svg]][license-link]
 
